@@ -47,6 +47,7 @@ func main() {
 	if confFile.String() == "" {
 		golog.Fatalf("must provide a -conf flag or set %q in the environment", envConfig)
 	}
+	fmt.Printf(confFile.String())
 	fail := false
 	defer func() {
 		if fail {

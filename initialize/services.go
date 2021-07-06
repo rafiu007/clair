@@ -205,13 +205,9 @@ func localMatcher(ctx context.Context, cfg *config.Config) (matcher.Service, err
 		updaterConfigs[name] = node.Decode
 	}
 	matcherConfigs := make(map[string]driver.MatcherConfigUnmarshaler)
-	fmt.Printf("#########################################################################################################################################################################################")
-	zlog.Info(ctx).Msg("111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111")
 	for name, node := range cfg.Matchers.Config {
 		matcherConfigs[name] = node.Decode
-		fmt.Printf(name)
 	}
-	fmt.Printf("%+v\n", matcherConfigs)
 	s, err := libvuln.New(ctx, &libvuln.Opts{
 		MaxConnPool:     int32(cfg.Matcher.MaxConnPool),
 		ConnString:      cfg.Matcher.ConnString,
